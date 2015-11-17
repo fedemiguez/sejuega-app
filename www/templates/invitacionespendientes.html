@@ -1,0 +1,32 @@
+<ion-view view-title="Invitaciones pendientes">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+      <div class="tabs tabs-dark tabs-icon-top static">
+          <a ui-sref="app.invitacionesaceptadas" class="tab-item">
+              <i class="icon ion-thumbsup"></i> Invitaciones aceptadas
+          </a>
+          <a ui-sref="app.invitacionescanceladas" class="tab-item">
+              <i class="icon ion-thumbsdown"></i> Invitaciones canceladas
+          </a>
+          <a ui-sref="app.invitacionespendientes" class="tab-item">
+              <i class="icon amarillo ion-clock"></i> Invitaciones pendientes
+          </a>
+      </div>
+            <div class="item card-item" ng-repeat="partido in partidos">
+          <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+              <div class="item item-avatar item-text-wrap">
+                  <span class="avatar" style="width:60px; height:60px; background-image: url('https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg');"></span>
+                 {{partido.nombre}}
+                  <div class="card-footer text-right">
+
+                      <div class="pull-left">
+                          <i class="icon ion-clock"></i>  {{partido.fecha}}
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="Mis partidos creados">
+    <ion-content >
+
+
+        <div class="item card-item" ui-sref="app.partidosaceptados" ng-repeat="partido in partidos">
+            <div  class="card stable-bg ink ink-dark">
+                <div class="item item-avatar item-text-wrap">
+                    <span class="avatar" style="width:60px; height:60px; background-image: url('http://static.freepik.com/foto-gratis/balon-de-futbol_17-309133104.jpg');"></span> 
+                    <i class="icon ion-ios-football"></i>  <strong>{{partido.nombre}}</strong>
+                    <br/>
+                    <div class="card-footer text-right">
+
+
+                        <div class="pull-left">
+                            <i class="icon ion-android-people"></i> {{partido.participantes}}
+                        </div>
+
+                          <br />
+                        <div class="pull-left">
+                            <i class="icon ion-ios-location-outline"></i> {{partido.lugar}}
+                        </div>
+
+                      <br />
+                        <div class="pull-left">
+                            <i class="icon ion-calendar"></i> {{partido.fecha}}
+                        </div>
+
+                      <br />
+                        <div class="pull-left">
+                            <i class="icon ion-clock"></i> {{partido.hora}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

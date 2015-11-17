@@ -1,0 +1,58 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+<ion-view view-title="Perfil">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+        <div class="list" >
+
+
+                <div class="item card-item">
+            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+                <div class="item item-avatar item-text-wrap">
+                        <img class="avatar" src="https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg">
+                    <h2>{{user.name}}</h2>
+                    <div class="card-footer text-right">
+
+                        <div class="pull-left">
+                            <i class="icon ion-email"></i> {{user.email}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button ng-click="modificar=1"  class="button button-positive">
+Modificar datos
+</button>
+
+         <div class="item card-item" ng-show="modificar">
+            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+                <div class="item item-avatar item-text-wrap">
+             <div class="list">
+            <label class="item item-input" >
+              <input type="text" placeholder="Nombre" ng-model="user.name">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="E-Mail" ng-model="user.email">
+            </label>
+
+          </div>
+                </div>
+            </div>
+
+        </div>
+
+        </ion-side-menus>
+
+
+        
+                
+<button ng-click="doSave()" ng-show="modificar" class="button button-positive">
+Guardar
+</button>
+   
+
+   
+            </div>
+
+    </ion-content>
+</ion-view>

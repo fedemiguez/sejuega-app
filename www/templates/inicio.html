@@ -1,0 +1,35 @@
+<ion-view view-title="Registrarse" align-title="left">
+  <video autoplay loop poster="" id="videobk">
+
+    <source type="video/mp4" src="video/video.mp4" />
+
+     </video>
+
+
+    <ion-content >
+      <button  ui-sref="app.profile" class="button button-full  ink icon-left ion-social-facebook button-positive-900"> Iniciar Sesión con Facebook</button>
+
+<label style="color:white; font-size:16px; text-align: center; background-color:black; height:24px; background-color: rgba(0, 0, 0, 0.7);" class="item-stacked-label"> ó </label>
+
+<br/>
+
+          <div class="list">
+            
+            <label class="item item-input blanco">
+              <input type="text" placeholder="E-Mail" ng-model="user.email">
+            </label>
+
+            <br />
+
+            <label class="item item-input blanco">
+              <input type="password" placeholder="Password" ng-model="user.password">
+            </label>
+
+          </div>
+        <div class="padding">
+          <button ng-click="doLogin()" class="button button-full button-assertive ink">Iniciar Sesión</button>
+        </div>
+
+    </ion-content>
+
+</ion-view>

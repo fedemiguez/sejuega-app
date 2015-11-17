@@ -1,0 +1,20 @@
+<ion-view view-title="Mis invitaciones">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+
+      <div class="tabs tabs-dark tabs-icon-top static">
+          <a ui-sref="app.invitacionesaceptadas" class="tab-item">
+              <i class="icon ion-checkmark-circled"></i> Invitaciones aceptadas
+          </a>
+          <a ui-sref="app.invitacionescanceladas" class="tab-item">
+              <i class="icon ion-close-circled"></i> Invitaciones canceladas
+          </a>
+          <a ui-sref="app.invitacionespendientes" class="tab-item">
+              <i class="icon ion-help-circled"></i> Invitaciones pendientes
+          </a>
+      </div>
+
+        <div class="list animate-fade-slide-in-right">
+
+        </div>
+    </ion-content>
+</ion-view>

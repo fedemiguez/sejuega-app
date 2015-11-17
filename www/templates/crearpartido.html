@@ -1,0 +1,55 @@
+<ion-view view-title="Crear Partido">
+  <img src="img/material3.jpg" id="videobk">
+
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+
+    <form name="myForm" novalidate>
+  <div class="list">
+    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
+      <span class="input-label">Nombre del Partido</span>
+      <input type="text" class="negro" name="titulo" placeholder="Nombre del Partido" ng-model="partidos.nombre">
+    </label>
+<br/>
+
+
+    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
+      <span class="input-label">Lugar</span>
+      <input type="text" class="negro" name="titulo" placeholder="Nombre del Partido" ng-model="partidos.lugar">
+    </label>
+<br/>
+
+
+    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
+      <span class="input-label">Fecha</span>
+      <input type="date" name="fecha" placeholder="fecha" ng-model="partidos.fecha">
+    </label>
+<br/>
+
+    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
+      <span class="input-label">Hora</span>
+      <input type="time" name="hora" placeholder="fecha" ng-model="partidos.hora">
+    </label>
+
+
+
+<br/>
+
+    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
+      <span class="input-label">Invitados</span>
+      <textarea name="invitados" placeholder="Invitados" ng-model="partidos.participantes"></textarea>
+    </label>
+
+<br/>
+
+
+
+        <div class="padding">
+          <button ng-click="doCreate()" class="button button-full button-assertive ink">Crear Partido</button>
+        </div>
+</form>
+
+
+
+    </ion-content>
+
+</ion-view>
