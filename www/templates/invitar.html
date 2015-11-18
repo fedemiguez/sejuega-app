@@ -1,0 +1,24 @@
+<ion-view view-title="Usuarios">
+  <ion-content>
+  <br />
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Buscar" ng-model="searchQuery" />
+    </label>
+
+     <ion-list ng-repeat="usuario in usuarioList | filter:searchQuery">
+
+
+    <ion-checkbox checklist-model="selected.usuarios" checklist-value="usuario.id" >{{usuario.name}} </ion-checkbox>
+
+    <br/>
+
+    </ion-list>
+
+
+        <div class="padding">
+          <button ng-click="doInvitar()" class="button button-full button-assertive ink">Invitar</button>
+        </div>
+
+  </ion-content>
+</ion-view>

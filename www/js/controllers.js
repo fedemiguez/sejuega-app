@@ -516,6 +516,87 @@ $scope.doRegisterFB = function() {
 
 })
 
+
+.controller('invitarCtrl', function($scope, $http, $location, $rootScope, $stateParams, $ionicPopup) {
+
+    console.log($rootScope.userToken);     
+    
+    $scope.user = [];
+    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.user = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      $location.path('/app/entrar');
+      // err.status will contain the status code
+    });
+
+
+
+  $scope.usuarioList = [];
+   $scope.$on('$ionicView.beforeEnter', function() {
+    $http.get('http://sejuega.herokuapp.com/usuario').then(function(resp) {
+      $scope.usuarioList = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+  });
+
+        $scope.selected = {
+        usuarios: []
+      };
+
+
+      $scope.doInvitar = function() {
+      $http.post('http://sejuega.herokuapp.com/partidos/'+ $stateParams.partidoId+'/invitar', $scope.selected , {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+        console.log(resp.data);
+
+     var alertPopup = $ionicPopup.alert({
+             title: 'Invitado con Exito!',
+             template: 'Segui invitando jugadores'
+           });
+           alertPopup.then(function(res) {
+             $location.path('/app/invitar/'+$stateParams.partidoId);
+           });
+
+    }, function(err) {
+      console.error('ERR', err);
+ 
+      // err.status will contain the status code
+    });
+    };
+
+
+
+                    $scope.model = "";
+                    $scope.clickedValueModel = "";
+                    $scope.removedValueModel = "";
+
+                    $scope.getTestItems = function (query) {
+                        if (query) {
+                            return {
+                                items: [
+                                    {id: "1", name: query + "1", view: "view: " + query + "1"},
+                                    {id: "2", name: query + "2", view: "view: " + query + "2"},
+                                    {id: "3", name: query + "3", view: "view: " + query + "3"}]
+                            };
+                        }
+                        return {items: []};
+                    };
+
+                    $scope.itemsClicked = function (callback) {
+                        $scope.clickedValueModel = callback;
+                    };
+                    $scope.itemsRemoved = function (callback) {
+                        $scope.removedValueModel = callback;
+                    };
+
+
+})
+
+
 .controller('PerfilCtrl', function($rootScope, $scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $http, $location) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
