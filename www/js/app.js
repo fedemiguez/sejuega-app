@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
     })
     .state('app.partidospendientes', {
-        url: '/partidospendientes',
+        url: '/partidospendientes/:partidoId',
         views: {
             'menuContent': {
                 templateUrl: 'templates/partidospendientes.html',
@@ -80,6 +80,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
             'menuContent': {
                 templateUrl: 'templates/invitar.html',
                 controller: 'invitarCtrl'
+            },
+
+        }
+    })
+
+    .state('app.aceptar', {
+        url: '/aceptar/:partidoId',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/aceptar.html',
+                controller: 'aceptarCtrl'
             },
 
         }

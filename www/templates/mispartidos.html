@@ -2,7 +2,7 @@
     <ion-content >
 
 
-        <div class="item card-item" ui-sref="app.partidosaceptados" ng-repeat="partido in partidos">
+        <div class="item card-item"  ng-repeat="partido in partidos">
             <div  class="card stable-bg ink ink-dark">
                 <div class="item item-avatar item-text-wrap">
                     <span class="avatar" style="width:60px; height:60px; background-image: url('http://static.freepik.com/foto-gratis/balon-de-futbol_17-309133104.jpg');"></span> 
@@ -10,10 +10,6 @@
                     <br/>
                     <div class="card-footer text-right">
 
-
-                        <div class="pull-left">
-                            <i class="icon ion-android-people"></i> {{partido.participantes}}
-                        </div>
 
                           <br />
                         <div class="pull-left">
@@ -29,6 +25,24 @@
                         <div class="pull-left">
                             <i class="icon ion-clock"></i> {{partido.hora}}
                         </div>
+
+                        <div class="pull-right">
+                            <a href="#/app/invitar/{{partido.id}}"><i class="icon ion-android-people"></i> Invitar Jugadores</a>
+                        </div>
+                      <br />
+
+                        <div class="pull-right">
+                            <a href="#/app/partidospendientes/{{partido.id}}"><i class="icon ion-android-people"></i> Ver Jugadores</a>
+                        </div>
+                      <br />
+<!-- eliminar partido 
+                        <div class="pull-right">
+            <button ng-click="doDelete({{partido.id}})"  class="button button-positive">
+                Eliminar partido
+                </button>                        </div>
+
+                -->
+
                     </div>
                 </div>
             </div>

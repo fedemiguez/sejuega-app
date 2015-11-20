@@ -87,17 +87,12 @@ angular.module('starter.controllers', [])
     };
 
     $scope.doLogout = function(){
-    $http.get('http://sejuega.herokuapp.com/logout').then(function(resp) {
-    $scope.user = resp.data.data;
-    $location.path('/app/inicio');
+ 
     $rootScope.userToken="";
+            $location.path('/app/inicio');
 
-    }, function(err) {
-      console.error('ERR', err);
-      // err.status will contain the status code
-    });
 
-        }
+    }
 
 
 })
@@ -184,6 +179,49 @@ $scope.doRegisterFB = function() {
 
 })
 
+.controller('partidospendientesCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http, $location, $rootScope) {
+    $scope.$parent.showHeader();
+    $scope.$parent.clearFabs();
+    $scope.isExpanded = false;
+    $scope.$parent.setExpanded(false);
+    $scope.$parent.setHeaderFab('right');
+  
+    $timeout(function() {
+        ionicMaterialMotion.fadeSlideIn({
+            selector: '.animate-fade-slide-in .item'
+        });
+    }, 200);
+
+    // Activate ink for controller
+    ionicMaterialInk.displayEffect();
+
+        $scope.user = [];
+    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.user = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      $location.path('/app/inicio');
+      // err.status will contain the status code
+    });
+
+
+
+    $scope.invitados = [];
+
+    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/invitados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.invitados = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+ 
+
+})
+
+
 .controller('mispartidosCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http, $location, $rootScope) {
     // Set Header
     $scope.$parent.showHeader();
@@ -229,7 +267,15 @@ $scope.doRegisterFB = function() {
          // err.status will contain the status code
        });
 
- 
+    $scope.doDelete = function(Id) {
+    $http.delete('http://sejuega.herokuapp.com/partidos/'+ $stateParams.Id, $scope.partido).then(function(resp) {
+      console.log(resp.data);
+      $location.path('/app/partidos');
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+  };
 })
 
 .controller('InicioCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk, $ionicPopup, $location, $http, $rootScope) {
@@ -266,33 +312,7 @@ $scope.doRegisterFB = function() {
 
 
 })
-.controller('partidospendientesCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http, $location, $rootScope) {
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = false;
-    $scope.$parent.setExpanded(false);
-    $scope.$parent.setHeaderFab('right');
-  
-    $timeout(function() {
-        ionicMaterialMotion.fadeSlideIn({
-            selector: '.animate-fade-slide-in .item'
-        });
-    }, 200);
 
-    // Activate ink for controller
-    ionicMaterialInk.displayEffect();
-
-        $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
-      $scope.user = resp.data.data;
-      console.log('Succes', resp.data.data);
-    }, function(err) {
-      console.error('ERR', err);
-      $location.path('/app/inicio');
-      // err.status will contain the status code
-    });
-
-})
 
 .controller('partidoscanceladosCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
@@ -348,20 +368,39 @@ $scope.doRegisterFB = function() {
 })
 
 .controller('invitacionespendientesCtrl', function($location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http) {
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
+ $scope.$parent.showHeader();
     $scope.isExpanded = false;
     $scope.$parent.setExpanded(false);
-    $scope.$parent.setHeaderFab('right');
+    $scope.$parent.setHeaderFab(false);
+
+    // Set Motion
+    $timeout(function() {
+        ionicMaterialMotion.slideUp({
+            selector: '.slide-up'
+        });
+    }, 300);
+
+    $timeout(function() {
+        ionicMaterialMotion.fadeSlideInRight({
+            startVelocity: 3000
+        });
+    }, 700);
+
+    // Set Ink
+    ionicMaterialInk.displayEffect();
     $scope.partidos = [];
 
-
-      $http.get('http://127.0.0.1/pruebaapi/api.php/partidos').then(function(resp) {
+    $http.get('http://sejuega.herokuapp.com/misinvitaciones', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.partidos = resp.data.data;
+      console.log('Succes', resp.data.data);
     }, function(err) {
       console.error('ERR', err);
+      $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+
+
 
 
     $timeout(function() {
@@ -383,6 +422,8 @@ $scope.doRegisterFB = function() {
       // err.status will contain the status code
     });
 })
+
+
 .controller('invitacionescanceladasCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
@@ -545,8 +586,10 @@ $scope.doRegisterFB = function() {
   });
 
         $scope.selected = {
-        usuarios: []
-      };
+        id_u: []
+        };
+
+
 
 
       $scope.doInvitar = function() {
@@ -630,7 +673,49 @@ $scope.doRegisterFB = function() {
   $scope.doSave = function() {
     $http.put('http://sejuega.herokuapp.com/usuario/'+ $stateParams.UsuarioId, $scope.usuario).then(function(resp) {
       console.log(resp.data);
-      $location.path('/app/usuarios');
+      $location.path('/app/perfil');
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+  };
+
+})
+
+.controller('aceptarCtrl', function($rootScope, $scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $http, $location) {
+    $scope.$parent.showHeader();
+    $scope.$parent.clearFabs();
+    $scope.isExpanded = true;
+    $scope.$parent.setExpanded(true);
+    $scope.$parent.setHeaderFab(false);
+    $scope.user = $rootScope.user;
+
+    // Activate ink for controller
+    ionicMaterialInk.displayEffect();
+
+    ionicMaterialMotion.pushDown({
+        selector: '.push-down'
+    });
+    ionicMaterialMotion.fadeSlideInRight({
+        selector: '.animate-fade-slide-in .item'
+    });
+
+    $scope.user = [];
+    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.user = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      $location.path('/app/inicio');
+      // err.status will contain the status code
+    });
+
+
+
+  $scope.aceptar = function() {
+    $http.put('http://sejuega.herokuapp.com/aceptarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      console.log(resp.data);
     }, function(err) {
       console.error('ERR', err);
       // err.status will contain the status code

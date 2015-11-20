@@ -8,8 +8,10 @@
 
      <ion-list ng-repeat="usuario in usuarioList | filter:searchQuery">
 
+  <input type="checkbox" checklist-model="selected.id_u" checklist-value="usuario.id" > {{usuario.name}}
 
-    <ion-checkbox checklist-model="selected.usuarios" checklist-value="usuario.id" >{{usuario.name}} </ion-checkbox>
+
+  
 
     <br/>
 

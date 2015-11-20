@@ -11,22 +11,43 @@
               <i class="icon amarillo ion-clock"></i> Invitaciones pendientes
           </a>
       </div>
-            <div class="item card-item" ng-repeat="partido in partidos">
-          <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-              <div class="item item-avatar item-text-wrap">
-                  <span class="avatar" style="width:60px; height:60px; background-image: url('https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg');"></span>
-                 {{partido.nombre}}
+            <div ng-repeat="partido in partidos">
+          <div class="card stable-bg ink ink-dark">
+              <div >
+                 <strong style="color:black">{{partido.nombre}}</strong>
                   <div class="card-footer text-right">
 
-                      <div class="pull-left">
+
+                     <div class="pull-left" style="color:black">
                           <i class="icon ion-clock"></i>  {{partido.fecha}}
 
                       </div>
+
+<br/>
+
+                      <div class="pull-left" style="color:black">
+                          <i class="icon ion-clock"></i>  {{partido.hora}}
+
+                      </div>
+<br/>
+
+                      <div class="pull-left" style="color:black">
+                          <i class="icon ion-clock"></i>  {{partido.lugar}}
+
+                      </div>
+
+                    <div class="pull-right">
+                            <a href="#/app/aceptar/{{partido.id}}"> Aceptar Partido</a>
+                        </div>
+                      <br />
+                      
                   </div>
               </div>
           </div>
       </div>
 
+
+        
 
     </ion-content>
 </ion-view>
