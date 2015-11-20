@@ -109,20 +109,9 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('RegistrarseCtrl', function($rootScope, $scope, $timeout, $stateParams, ionicMaterialInk, $http, $location) {
+.controller('RegistrarseCtrl', function($rootScope, $scope, $timeout, $stateParams, ionicMaterialInk, $http, $location, $ionicPopup) {
     
-        if($rootScope.user){
 
-            $scope.user = $rootScope.user;
-        }else{
-
-        $scope.user={};
-        $scope.user.picture='';
-        $scope.user.name='';
-        $scope.user.email='';
-        $scope.user.id ='';
-    
-        }
         
 
     $timeout(function() {
@@ -130,11 +119,24 @@ angular.module('starter.controllers', [])
     }, 0);
     ionicMaterialInk.displayEffect();
 
-    $scope.doRegister = function() {
 
+        $scope.user={};
+        $scope.user.picture='';
+        $scope.user.name='';
+        $scope.user.email='';
+        $scope.user.id =''; 
+  
+   $scope.doRegister = function() {
       $http.post('http://sejuega.herokuapp.com/usuario',$scope.user ).then(function(resp) {
         console.log(resp.data);
-        $location.path('/app/perfil');
+         var alertPopup = $ionicPopup.alert({
+             title: 'Usuario Creado con exito',
+             template: 'Ingresa ahora'
+           });
+           alertPopup.then(function(res) {
+             $location.path('/app/usuarios');
+           });
+          
     }, function(err) {
       console.error('ERR', err);
       // err.status will contain the status code
