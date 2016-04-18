@@ -578,7 +578,7 @@ $scope.doRegisterFB = function() {
 
   $scope.usuarioList = [];
    $scope.$on('$ionicView.beforeEnter', function() {
-    $http.get('http://sejuega.herokuapp.com/usuario').then(function(resp) {
+    $http.get('http://sejuega.herokuapp.com/'+ $scope.user.id+'/jugadores').then(function(resp) {
       $scope.usuarioList = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {

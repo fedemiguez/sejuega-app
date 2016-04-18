@@ -75,7 +75,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     })
 
     .state('app.invitar', {
-        url: '/invitar/:partidoId',
+        url: '/:partidoId/invitar',
         views: {
             'menuContent': {
                 templateUrl: 'templates/invitar.html',
