@@ -96,8 +96,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
     })
 
+
+    .state('app.cancelar', {
+        url: '/cancelar/:partidoId',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/cancelar.html',
+                controller: 'cancelarCtrl'
+            },
+
+        }
+    })
+
     .state('app.partidoscancelados', {
-        url: '/partidoscancelados',
+        url: '/partidoscancelados/:partidoId',
         views: {
             'menuContent': {
                 templateUrl: 'templates/partidoscancelados.html',
@@ -116,7 +128,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 
 
     .state('app.partidosaceptados', {
-        url: '/partidosaceptados',
+        url: '/partidosaceptados/:partidoId',
         views: {
             'menuContent': {
                 templateUrl: 'templates/partidosaceptados.html',

@@ -208,7 +208,6 @@ $scope.doRegisterFB = function() {
     });
 
 
-
     $scope.invitados = [];
 
     $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/invitados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
@@ -219,7 +218,16 @@ $scope.doRegisterFB = function() {
       // err.status will contain the status code
     });
 
- 
+           $scope.aceptados = function() {
+
+              $location.path('/app/partidosaceptados/'+$stateParams.partidoId);
+           };
+
+            $scope.cancelados = function() {
+
+              $location.path('/app/partidoscancelados/'+$stateParams.partidoId);
+           };
+
 
 })
 
@@ -316,13 +324,13 @@ $scope.doRegisterFB = function() {
 })
 
 
-.controller('partidoscanceladosCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+.controller('partidoscanceladosCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http, $location, $rootScope) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = false;
     $scope.$parent.setExpanded(false);
     $scope.$parent.setHeaderFab('right');
-
+  
     $timeout(function() {
         ionicMaterialMotion.fadeSlideIn({
             selector: '.animate-fade-slide-in .item'
@@ -341,14 +349,34 @@ $scope.doRegisterFB = function() {
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+
+
+    $scope.cancelados = [];
+
+    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/cancelados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.cancelados = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+ 
+
 })
-.controller('partidosaceptadosCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+
+
+
+
+
+.controller('partidosaceptadosCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http, $location, $rootScope) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = false;
     $scope.$parent.setExpanded(false);
     $scope.$parent.setHeaderFab('right');
-
+  
     $timeout(function() {
         ionicMaterialMotion.fadeSlideIn({
             selector: '.animate-fade-slide-in .item'
@@ -367,7 +395,25 @@ $scope.doRegisterFB = function() {
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+
+
+    $scope.aceptados = [];
+
+    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/aceptados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.aceptados = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+ 
+
 })
+
+
+
 
 .controller('invitacionespendientesCtrl', function($location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http) {
  $scope.$parent.showHeader();
@@ -565,27 +611,28 @@ $scope.doRegisterFB = function() {
     console.log($rootScope.userToken);     
     
     $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
-      $scope.user = resp.data.data;
-      console.log('Succes', resp.data.data);
+
+
+
+$http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+  $scope.user.id = resp.data.data;
+  $scope.getUsuarioList();
+  console.log('Succes', resp.data.data);
+}, function(err) {
+  console.error('ERR', err);
+  $location.path('/app/entrar');
+  // err.status will contain the status code
+});
+
+$scope.getUsuarioList = function(){
+    $http.get('http://sejuega.herokuapp.com/jugadores/'+$scope.user.id).then(function(resp) {
+        $scope.usuarioList = resp.data.data;
+        console.log('Succes', resp.data.data);
     }, function(err) {
-      console.error('ERR', err);
-      $location.path('/app/entrar');
-      // err.status will contain the status code
-    });
+        console.error('ERR', err);
+    }); 
+}
 
-
-
-  $scope.usuarioList = [];
-   $scope.$on('$ionicView.beforeEnter', function() {
-    $http.get('http://sejuega.herokuapp.com/jugadores/1').then(function(resp) {
-      $scope.usuarioList = resp.data.data;
-      console.log('Succes', resp.data.data);
-    }, function(err) {
-      console.error('ERR', err);
-      // err.status will contain the status code
-    });
-  });
 
         $scope.selected = {
         id_u: []
@@ -727,4 +774,44 @@ $scope.doRegisterFB = function() {
 
 })
 
-;
+.controller('cancelarCtrl', function($rootScope, $scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $http, $location) {
+    $scope.$parent.showHeader();
+    $scope.$parent.clearFabs();
+    $scope.isExpanded = true;
+    $scope.$parent.setExpanded(true);
+    $scope.$parent.setHeaderFab(false);
+    $scope.user = $rootScope.user;
+
+    // Activate ink for controller
+    ionicMaterialInk.displayEffect();
+
+    ionicMaterialMotion.pushDown({
+        selector: '.push-down'
+    });
+    ionicMaterialMotion.fadeSlideInRight({
+        selector: '.animate-fade-slide-in .item'
+    });
+
+    $scope.user = [];
+    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.user = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      $location.path('/app/inicio');
+      // err.status will contain the status code
+    });
+
+
+
+  $scope.cancelar = function() {
+    $http.put('http://sejuega.herokuapp.com/cancerlarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      console.log(resp.data);
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+  };
+
+});

@@ -1,10 +1,10 @@
 <ion-view view-title="Partidos pendientes">
     <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
       <div class="tabs tabs-dark tabs-icon-top static">
-          <a ui-sref="app.partidosaceptados" class="tab-item">
+          <a ng-click="aceptados()" class="tab-item">
               <i class="icon ion-checkmark-circled"></i> Jugadores aceptados
           </a>
-          <a ui-sref="app.partidoscancelados" class="tab-item">
+          <a ng-click="cancelados()" class="tab-item">
               <i class="icon ion-close-circled"></i> Jugadores cancelados
           </a>
           <a ui-sref="app.partidospendientes" class="tab-item">

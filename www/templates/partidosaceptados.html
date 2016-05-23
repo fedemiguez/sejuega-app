@@ -11,7 +11,9 @@
               <i class="icon ion-help-circled"></i> Jugadores pendientes
           </a>
       </div>
-        <div class="item card-item">
+       
+
+       <!-- <div class="item card-item">
             <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
                 <div class="item item-avatar item-text-wrap">
                     <span class="avatar" style="width:60px; height:60px; background-image: url('https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg');"></span>
@@ -24,49 +26,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="item card-item">
-            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-                <div class="item item-avatar item-text-wrap">
-                    <span class="avatar" style="width:60px; height:60px; background-image: url('https://scontent-gru1-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11148323_1008039435886339_9199556710690406494_n.jpg?oh=ef1487036360e909bd459ef78da5eac8&oe=569FE748');"></span>
-                    Aceptaste un partido de <strong>Neri</strong>
-                    <div class="card-footer text-right">
+        </div>-->
+<div  ng-repeat="aceptado in aceptados">
+            <div  class="card stable-bg ink ink-dark">
+                  
+                    <i class="icon ion-android-people"></i>  <strong style="color:black">      {{aceptado.name}}</strong>
 
-                        <div class="pull-left">
-                            <i class="icon ion-clock"></i> Justo ahora
-                        </div>
-                    </div>
+
                 </div>
             </div>
-        </div>
-        <div class="item card-item">
-            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-                <div class="item item-avatar item-text-wrap">
-                    <span class="avatar" style="width:60px; height:60px; background-image: url('https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10635887_10205222538822284_8769564045835665858_n.jpg?oh=0ab466b5a76729e452f6d3387c9f8df6&oe=56A420E1&__gda__=1449454494_8e535c0769f017efcd6efbb3d650389d');"></span>
-                    Aceptaste un partido de <strong>Fede</strong>
-                    <div class="card-footer text-right">
-
-                        <div class="pull-left">
-                            <i class="icon ion-clock"></i> Justo ahora
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item card-item">
-            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-                <div class="item item-avatar item-text-wrap">
-                    <span class="avatar" style="width:60px; height:60px; background-image: url('https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10635719_10205098114478429_39078646298028063_n.jpg?oh=743ac33d702e7b0203708a9233981951&oe=568E92EB&__gda__=1449289299_46b0cb5b4d1a173ad00025f05bad2f6f');"></span>
-                    Aceptaste un partido de <strong>Flecha</strong>
-                    <div class="card-footer text-right">
-
-                        <div class="pull-left">
-                            <i class="icon ion-clock"></i> Justo ahora
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  
+        
 
     </ion-content>
 </ion-view>
