@@ -11,36 +11,43 @@
               <i class="icon ion-clock"></i> Invitaciones pendientes
           </a>
       </div>
-      <div class="item card-item">
-          <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-              <div class="item item-avatar item-text-wrap">
-                  <span class="avatar" style="width:60px; height:60px; background-image: url('https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg');"></span>
-                  Aceptaste un partido de <strong>Hernan</strong>
+     <div ng-repeat="partido in partidos">
+          <div class="card stable-bg ink ink-dark">
+              <div >
+                 <strong style="color:black">{{partido.nombre}}</strong>
                   <div class="card-footer text-right">
 
-                      <div class="pull-left">
-                          <i class="icon ion-clock"></i> Justo ahora
+
+                     <div class="pull-left" style="color:black">
+                          <i class="icon ion-clock"></i>  {{partido.fecha}}
+
                       </div>
+
+<br/>
+
+                      <div class="pull-left" style="color:black">
+                          <i class="icon ion-clock"></i>  {{partido.hora}}
+
+                      </div>
+<br/>
+
+                      <div class="pull-left" style="color:black">
+                          <i class="icon ion-clock"></i>  {{partido.lugar}}
+
+                      </div>
+
+  
                   </div>
+
+                        <div class="pull-right">
+                            <a href="#/app/aceptar/{{partido.id}}"><span class="avatar" style="width:30px; height:30px; background-color: #20C812;-webkit-mask-image: url(http://image005.flaticon.com/131/svg/128/128517.svg); mask-image: urlhttp://image005.flaticon.com/131/svg/128/128517.svg);    position: relative; left: -40px;  bottom: 10px;"></span></a>
+                        </div>
+                      <br />
+
+                  </div>
+
               </div>
           </div>
-      </div>
-
-
-      <div class="item card-item">
-          <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
-              <div class="item item-avatar item-text-wrap">
-                  <span class="avatar" style="width:60px; height:60px; background-image: url('https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10635719_10205098114478429_39078646298028063_n.jpg?oh=743ac33d702e7b0203708a9233981951&oe=568E92EB&__gda__=1449289299_46b0cb5b4d1a173ad00025f05bad2f6f');"></span>
-                  Aceptaste un partido de <strong>Flecha</strong>
-                  <div class="card-footer text-right">
-
-                      <div class="pull-left">
-                          <i class="icon ion-clock"></i> Justo ahora
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
 
     </ion-content>
 </ion-view>

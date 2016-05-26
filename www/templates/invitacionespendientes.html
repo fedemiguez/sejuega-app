@@ -11,7 +11,7 @@
               <i class="icon amarillo ion-clock"></i> Invitaciones pendientes
           </a>
       </div>
-            <div ng-repeat="partido in partidos">
+            <div ng-repeat="partido in partidos" ng-model="partidos">
           <div class="card stable-bg ink ink-dark">
               <div >
                  <strong style="color:black">{{partido.nombre}}</strong>
@@ -52,6 +52,11 @@
                   </div>
 
               </div>
+          </div>
+
+          <div ng-hide="partidos">
+            
+<h2>No hay invitaciones pendientes</h2>
           </div>
       </div>
 

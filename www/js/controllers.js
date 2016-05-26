@@ -451,6 +451,8 @@ $scope.doRegisterFB = function() {
 
 
 
+
+
     $timeout(function() {
         ionicMaterialMotion.fadeSlideIn({
             selector: '.animate-fade-slide-in .item'
@@ -497,6 +499,17 @@ $scope.doRegisterFB = function() {
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+     $http.get('http://sejuega.herokuapp.com/misinvitacionescanceladas', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.partidos = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      $location.path('/app/inicio');
+      // err.status will contain the status code
+    });
+
+
 })
 .controller('invitacionesaceptadasCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
@@ -523,36 +536,22 @@ $scope.doRegisterFB = function() {
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
-})
 
-
-
-.controller('invitacionesaceptadasCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = false;
-    $scope.$parent.setExpanded(false);
-    $scope.$parent.setHeaderFab('right');
-
-    $timeout(function() {
-        ionicMaterialMotion.fadeSlideIn({
-            selector: '.animate-fade-slide-in .item'
-        });
-    }, 200);
-
-    // Activate ink for controller
-    ionicMaterialInk.displayEffect();
-
-        $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
-      $scope.user = resp.data.data;
+ $http.get('http://sejuega.herokuapp.com/misinvitacionesaceptadas', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.partidos = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
       console.error('ERR', err);
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+
 })
+
+
+
+
 
 
 
@@ -614,24 +613,24 @@ $scope.doRegisterFB = function() {
 
 
 
+$scope.getUsuarioList = function(){
+    $http.get('http://sejuega.herokuapp.com/jugadores/'+$scope.user.id).then(function(resp) {
+        $scope.usuarioList = resp.data.data;
+        console.log('usuariolist', resp.data.data);
+    }, function(err) {
+        console.error('ERR', err);
+    }); 
+}
+
 $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
-  $scope.user.id = resp.data.data;
+  $scope.user = resp.data.data;
   $scope.getUsuarioList();
-  console.log('Succes', resp.data.data);
+  console.log('userid', resp.data.data);
 }, function(err) {
   console.error('ERR', err);
   $location.path('/app/entrar');
   // err.status will contain the status code
 });
-
-$scope.getUsuarioList = function(){
-    $http.get('http://sejuega.herokuapp.com/jugadores/'+$scope.user.id).then(function(resp) {
-        $scope.usuarioList = resp.data.data;
-        console.log('Succes', resp.data.data);
-    }, function(err) {
-        console.error('ERR', err);
-    }); 
-}
 
 
         $scope.selected = {
@@ -655,9 +654,15 @@ $scope.getUsuarioList = function(){
 
     }, function(err) {
       console.error('ERR', err);
- 
-      // err.status will contain the status code
-    });
+
+         var alertPopup = $ionicPopup.alert({
+             title: 'Problema al Invitar',
+             template: 'Ya invitaste a este jugador'
+           });
+           alertPopup.then(function(res) {
+             $location.path('/app/invitar/'+$stateParams.partidoId);
+           });  
+   });
     };
 
 
@@ -765,6 +770,8 @@ $scope.getUsuarioList = function(){
   $scope.aceptar = function() {
     $http.put('http://sejuega.herokuapp.com/aceptarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       console.log(resp.data);
+      $location.path('/app/invitacionespendientes');
+
     }, function(err) {
       console.error('ERR', err);
       // err.status will contain the status code
