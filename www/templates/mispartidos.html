@@ -1,41 +1,43 @@
 <ion-view view-title="Mis partidos creados">
-    <ion-content >
+    <ion-content class="fondo-mispartidos">
 
 
-        <div class="item card-item"  ng-repeat="partido in partidos">
-            <div  class="card stable-bg ink ink-dark">
+        <div class="item card-item caja-cuadro alinear-caja-cuadro"  ng-repeat="partido in partidos">
+            <div  class="card stable-bg cuadro-item margen-cuadro ink ink-dark">
                 <div class="item item-avatar item-text-wrap">
-                    <span class="avatar" style="width:60px; height:60px; background-image: url('http://static.freepik.com/foto-gratis/balon-de-futbol_17-309133104.jpg');"></span> 
-                    <i class="icon ion-ios-football"></i>  <strong>{{partido.nombre}}</strong>
+                    <span class="" style="    background-position: center; background-size: cover; display: inline-block; height: 100%; left: 0px; top: 0; position: absolute; width: 100px; background-image: url('../img/avatar.jpg');"></span>
+
+                  <div class="alinear-partido">   <strong>{{partido.nombre}}</strong></div>
                     <br/>
                     <div class="card-footer text-right">
 
-
+                      <div class="alinear-partido">
                           <br />
                         <div class="pull-left">
-                            <i class="icon ion-ios-location-outline"></i> {{partido.lugar}}
+                            <p><font style="font-weight:500;color:black;">Lugar :</font> {{partido.lugar}}</p>
                         </div>
 
                       <br />
                         <div class="pull-left">
-                            <i class="icon ion-calendar"></i> {{partido.fecha}}
+                            <p><font style="font-weight:500;color:black;">Fecha :</font> {{partido.fecha}}</p>
                         </div>
 
                       <br />
                         <div class="pull-left">
-                            <i class="icon ion-clock"></i> {{partido.hora}}
+                            <p><font style="font-weight:500;color:black;">Horario :</font>  {{partido.hora}}</p>
                         </div>
+                      </div>
 
-                        <div class="pull-right">
-                            <a href="#/app/invitar/{{partido.id}}"><i class="icon ion-android-people"></i> Invitar Jugadores</a>
+                        <div class="pull-right cuadro-invitar">
+                            <a class="cuadro-invitar texto-href"href="#/app/invitar/{{partido.id}}">INVITAR JUGADORES</a>
                         </div>
                       <br />
 
-                        <div class="pull-right">
-                            <a href="#/app/partidospendientes/{{partido.id}}"><i class="icon ion-android-people"></i> Ver Jugadores</a>
+                        <div class="pull-right cuadro-ver">
+                            <a class="cuadro-ver texto-href" href="#/app/partidospendientes/{{partido.id}}">VER JUGADORES</a>
                         </div>
                       <br />
-<!-- eliminar partido 
+<!-- eliminar partido
                         <div class="pull-right">
             <button ng-click="doDelete({{partido.id}})"  class="button button-positive">
                 Eliminar partido

@@ -5,8 +5,8 @@
         <div class="list" >
 
 
-                <div class="item card-item">
-            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+                <div class="item alinear-caja-cuadro card-item">
+            <div ui-sref="app.gallery" class="card stable-bg cuadro-item ink ink-dark">
                 <div class="item item-avatar item-text-wrap">
                         <img class="avatar" src="https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg">
                     <h2>{{user.name}}</h2>
@@ -24,8 +24,8 @@
 Modificar datos
 </button>
 
-         <div class="item card-item" ng-show="modificar">
-            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+         <div class="item alinear-caja-cuadro card-item" ng-show="modificar">
+            <div ui-sref="app.gallery" class="card stable-bg cuadro-item ink ink-dark">
                 <div class="item item-avatar item-text-wrap">
              <div class="list">
             <label class="item item-input" >
@@ -44,14 +44,14 @@ Modificar datos
         </ion-side-menus>
 
 
-        
-                
+
+
 <button ng-click="doSave()" ng-show="modificar" class="button button-positive">
 Guardar
 </button>
-   
 
-   
+
+
             </div>
 
     </ion-content>

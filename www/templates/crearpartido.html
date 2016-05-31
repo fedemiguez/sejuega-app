@@ -1,33 +1,33 @@
-<ion-view view-title="Crear Partido">
-  <img src="img/material3.jpg" id="videobk">
+<ion-view class="fondo-mispartidos"view-title="Crear Partido">
+
 
     <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
 
-    <form name="myForm" novalidate>
+    <form name="myForm" class="alineacion-form"novalidate>
   <div class="list">
-    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
-      <span class="input-label">Nombre del Partido</span>
-      <input type="text" class="negro" name="titulo" placeholder="Nombre del Partido" ng-model="partidos.nombre">
+    <label class="item item-input estilo-input item-stacked-label" style="background-color:rgba(255, 255, 255, 0.6);">
+      <span class="input-label texto-label">Nombre del Partido</span>
+      <input type="text" style="color:black" class="negro" name="titulo" placeholder="Nombre del Partido" ng-model="partidos.nombre">
     </label>
 <br/>
 
 
-    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
-      <span class="input-label">Lugar</span>
-      <input type="text" class="negro" name="titulo" placeholder="Nombre del Partido" ng-model="partidos.lugar">
+    <label class="item item-input item-stacked-label" style="background-color:rgba(255, 255, 255, 0.6);">
+      <span class="input-label texto-label">Lugar</span>
+      <input type="text" style="color:white" class="negro" name="titulo" placeholder="Nombre del Partido" ng-model="partidos.lugar">
     </label>
 <br/>
 
 
-    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
-      <span class="input-label">Fecha</span>
-      <input type="date" name="fecha" placeholder="fecha" ng-model="partidos.fecha">
+    <label class="item item-input item-stacked-label" style="background-color:rgba(255, 255, 255, 0.6);">
+      <span class="input-label texto-label">Fecha</span>
+      <input type="date" style="color:black" name="fecha" placeholder="fecha" ng-model="partidos.fecha">
     </label>
 <br/>
 
-    <label class="item item-input item-stacked-label" style="background-color:rgba(0, 0, 0, 0.7);">
-      <span class="input-label">Hora</span>
-      <input type="time" name="hora" placeholder="fecha" ng-model="partidos.hora">
+    <label class="item item-input item-stacked-label" style="background-color:rgba(255, 255, 255, 0.6);">
+      <span class="input-label texto-label">Hora</span>
+      <input type="time" style="color:black" name="hora" placeholder="fecha" ng-model="partidos.hora">
     </label>
 
 
