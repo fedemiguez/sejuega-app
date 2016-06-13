@@ -137,3 +137,152 @@ p {
     position: fixed;
     bottom: 0;
 }
+
+
+
+/* INICIO CAMBIOS ESTILOS APP
+==================================*/
+
+.cuadro-item{
+  background-color:rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 0px #ccc;
+  border-radius: 0px;
+  width: 100%;
+}
+.cuadro-item:hover{
+  background-color: #ccc;
+}
+.caja-cuadro{
+  margin: 0;
+  padding: 0;
+  width: 102%;
+
+}
+.bar {
+  background-color: #A8B935;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,.26);
+  border-color: #A8B935;
+}
+
+.margen-cuadro{
+  margin-top: 0px;
+}
+
+.cuadro-invitar{
+  width:150px ;
+  height: 50%;
+  background-color: #00695C;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+.cuadro-ver{
+  width:150px ;
+  height: 50%;
+  background-color: #039179;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+.alinear-caja-cuadro{
+  position: relative;
+  right: 8px;
+}
+.texto-href{
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  right: 3px;
+  position: relative;
+ top: 42%;
+ transform: translateY(-50%);
+}
+
+.fondo-mispartidos{
+  background-image: url(../img/mispartidos-fondo.jpg);
+}
+.fondo-perfil{
+  background-image: url(../img/fondo-perfil.jpg);
+  background-size: 120% 120%;
+}
+.alinear-partido{
+  position: relative;
+  left: 25px;
+
+}
+
+
+
+.muenu-desplegable{
+  background-color: #A8B935;
+  color: white;
+}
+
+.muenu-desplegable:hover{
+  background-color: #A8B935;
+  color: white;
+}
+.texto-menu{
+  color: white;
+  font-weight: 100;
+}
+.alinear-avatar-menu{
+  text-align: center;
+}
+.fondo-menu-avatar{
+  background-color: #AAB249;
+  width: 100%;
+  height: 100%;
+}
+.button-fab{
+  background-color: #2D9B86;
+}
+.estilo-input{
+  background-color:  rgba(255,255,255,0.26);
+}
+.texto-label{
+  color: black;
+}
+.alineacion-form{
+  position: relative;
+  top: 17px;
+}
+.menu .avatar {
+    height: 96px;
+    width: 100px;
+    position: relative;
+    left: 80px;
+}
+.caja-perfil{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+
+}
+.caja-avatar{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+}
+.centro{
+  position: absolute;
+margin: 0 auto;
+left: 0;
+right: 0;
+
+
+}
+.item-avatar .item-content .item-image, .item-avatar .item-content>img:first-child, .item-avatar .item-image, .item-avatar-left .item-content .item-image, .item-avatar-left .item-content>img:first-child, .item-avatar-left .item-image, .item-avatar-left>img:first-child, .item-avatar>img:first-child{
+  position: absolute;
+  left: 0;
+}
+.posicion-mail{
+  position: absolute;
+    top: 115px;
+}
+
+/* FIN CAMBIOS ESTILOS APP
+==================================*/

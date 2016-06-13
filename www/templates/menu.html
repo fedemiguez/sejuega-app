@@ -13,25 +13,26 @@
     </ion-side-menu-content>
     <ion-side-menu side="left">
         <ion-header-bar class="dark-bg expanded">
-            <span class="avatar" style="background: url('img/sejuega.png'); background-size: cover;"></span>
-
+          <div class="fondo-menu-avatar ">
+            <span class="avatar imagen-avatar " style="background: url('img/sejuega.png'); border-radius:0px;background-size: cover;"></span>
+          </div>
         </ion-header-bar>
-        <ion-content class="stable-bg has-expanded-header">
+        <ion-content class="stable-bg muenu-desplegable has-expanded-header">
             <ion-list>
-                <ion-item nav-clear menu-close ui-sref="app.crearpartido">
-                    Crear Partido
+                <ion-item nav-clear class="texto-menu" menu-close ui-sref="app.crearpartido">
+                    CREAR PARTIDO
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.mispartidos">
-                    Mis partidos creados
+                <ion-item nav-clear menu-close class="texto-menu" ui-sref="app.mispartidos">
+                    MIS PARTIDOS CREADOS
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.invitacionespendientes">
-                    Mis invitaciones
+                <ion-item nav-clear menu-close class="texto-menu" ui-sref="app.invitacionespendientes">
+                    MIS INVITACIONES
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.perfil">
-                    Mi perfil
+                <ion-item nav-clear menu-close class="texto-menu" ui-sref="app.perfil">
+                    MI PERFIL
                 </ion-item>
-                <ion-item nav-clear menu-close ng-click="doLogout()">
-                    Cerrar Sesión
+                <ion-item nav-clear menu-close class="texto-menu" ng-click="doLogout()">
+                    CERRAR SESIÓN
                 </ion-item>
             </ion-list>
         </ion-content>
