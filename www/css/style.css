@@ -159,8 +159,9 @@ p {
 
 }
 .bar {
-  background-color: #00564A;
+  background-color: #A8B935;
   box-shadow: 0 0px 0px 0 rgba(0,0,0,.26);
+  border-color: #A8B935;
 }
 
 .margen-cuadro{
@@ -203,6 +204,10 @@ p {
 .fondo-mispartidos{
   background-image: url(../img/mispartidos-fondo.jpg);
 }
+.fondo-perfil{
+  background-image: url(../img/fondo-perfil.jpg);
+  background-size: 120% 120%;
+}
 .alinear-partido{
   position: relative;
   left: 25px;
@@ -212,12 +217,12 @@ p {
 
 
 .muenu-desplegable{
-  background-color: black;
+  background-color: #A8B935;
   color: white;
 }
 
 .muenu-desplegable:hover{
-  background-color: black;
+  background-color: #A8B935;
   color: white;
 }
 .texto-menu{
@@ -228,7 +233,7 @@ p {
   text-align: center;
 }
 .fondo-menu-avatar{
-  background-color: black;
+  background-color: #AAB249;
   width: 100%;
   height: 100%;
 }
@@ -245,5 +250,39 @@ p {
   position: relative;
   top: 17px;
 }
+.menu .avatar {
+    height: 96px;
+    width: 100px;
+    position: relative;
+    left: 80px;
+}
+.caja-perfil{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+
+}
+.caja-avatar{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+}
+.centro{
+  position: absolute;
+margin: 0 auto;
+left: 0;
+right: 0;
+
+
+}
+.item-avatar .item-content .item-image, .item-avatar .item-content>img:first-child, .item-avatar .item-image, .item-avatar-left .item-content .item-image, .item-avatar-left .item-content>img:first-child, .item-avatar-left .item-image, .item-avatar-left>img:first-child, .item-avatar>img:first-child{
+  position: absolute;
+  left: 0;
+}
+.posicion-mail{
+  position: absolute;
+    top: 115px;
+}
+
 /* FIN CAMBIOS ESTILOS APP
 ==================================*/
