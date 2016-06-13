@@ -310,8 +310,8 @@ $scope.doRegisterFB = function() {
       console.error('ERR', err);
       var alertPopup = $ionicPopup.alert({
              title: 'Error en el ingreso',
-             template: 'Email o contraseña invalido'
-           });
+             template: 'Email o contraseña invalido',
+            });
            alertPopup.then(function(res) {
              $location.path('/app/inicio');
            });
@@ -591,7 +591,20 @@ $scope.doRegisterFB = function() {
 
       $http.post('http://sejuega.herokuapp.com/partidos', $scope.partidos, {headers: {'auth-token': $rootScope.userToken}}  ).then(function(resp) {
         console.log(resp.data);
-              $location.path('/app/mispartidos');
+
+    $scope.ultimopartido = [];
+
+       $http.get('http://sejuega.herokuapp.com/ultimopartido', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+         $scope.ultimopartido = resp.data.data;
+         console.log('Succes partidos', resp.data.data);
+
+          $location.path('/app/invitar/'+$scope.ultimopartido.id);
+
+
+       }, function(err) {
+         console.error('ERR', err);
+         // err.status will contain the status code
+       });
 
     }, function(err) {
       console.error('ERR', err);
@@ -721,6 +734,8 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+
 
 
 
