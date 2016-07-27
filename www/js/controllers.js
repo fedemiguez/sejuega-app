@@ -208,6 +208,18 @@ $scope.doRegisterFB = function() {
     });
 
 
+    $scope.partido = [];
+
+    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId, {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $scope.partido = resp.data.data;
+      console.log('Succes', resp.data.data);
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+
+
     $scope.invitados = [];
 
     $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/invitados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
@@ -228,6 +240,11 @@ $scope.doRegisterFB = function() {
               $location.path('/app/partidoscancelados/'+$stateParams.partidoId);
            };
 
+ 
+             $scope.pendientes = function() {
+
+              $location.path('/app/partidospendientes/'+$stateParams.partidoId);
+           };
 
 })
 
@@ -364,6 +381,22 @@ $scope.doRegisterFB = function() {
 
  
 
+           $scope.aceptados = function() {
+
+              $location.path('/app/partidosaceptados/'+$stateParams.partidoId);
+           };
+
+            $scope.cancelados = function() {
+
+              $location.path('/app/partidoscancelados/'+$stateParams.partidoId);
+           };
+
+
+             $scope.pendientes = function() {
+
+              $location.path('/app/partidospendientes/'+$stateParams.partidoId);
+           };
+
 })
 
 
@@ -408,7 +441,20 @@ $scope.doRegisterFB = function() {
       // err.status will contain the status code
     });
 
+           $scope.aceptados = function() {
+
+              $location.path('/app/partidosaceptados/'+$stateParams.partidoId);
+           };
+
+            $scope.cancelados = function() {
+
+              $location.path('/app/partidoscancelados/'+$stateParams.partidoId);
+           };
  
+             $scope.pendientes = function() {
+
+              $location.path('/app/partidospendientes/'+$stateParams.partidoId);
+           };
 
 })
 
@@ -555,7 +601,7 @@ $scope.doRegisterFB = function() {
 
 
 
-.controller('CrearPartidoCtrl', function( $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http) {
+.controller('CrearPartidoCtrl', function( $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http, $ionicPopup) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = false;
@@ -565,6 +611,8 @@ $scope.doRegisterFB = function() {
         $scope.partidos.nombre='';
         $scope.partidos.participantes='';
         $scope.partidos.fecha='';
+        $scope.partidos.hora='';
+
     $timeout(function() {
         ionicMaterialMotion.fadeSlideIn({
             selector: '.animate-fade-slide-in .item'
@@ -603,12 +651,22 @@ $scope.doRegisterFB = function() {
 
        }, function(err) {
          console.error('ERR', err);
-         // err.status will contain the status code
-       });
+
+
+
+          });
 
     }, function(err) {
       console.error('ERR', err);
-      // err.status will contain the status code
+
+         var alertPopup = $ionicPopup.alert({
+             title: 'Problema al Invitar',
+             template: 'Ya invitaste a este jugador'
+           });
+           alertPopup.then(function(res) {
+             $location.path('/app/crearpartido');
+           });  
+
     });
     };
 
@@ -662,7 +720,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
              template: 'Segui invitando jugadores'
            });
            alertPopup.then(function(res) {
-             $location.path('/app/invitar/'+$stateParams.partidoId);
+             $location.path('/app/partidospendientes/'+$stateParams.partidoId);
            });
 
     }, function(err) {
@@ -724,6 +782,8 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
     ionicMaterialMotion.fadeSlideInRight({
         selector: '.animate-fade-slide-in .item'
     });
+
+
 
     $scope.user = [];
     $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {

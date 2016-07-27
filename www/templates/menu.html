@@ -13,26 +13,26 @@
     </ion-side-menu-content>
     <ion-side-menu side="left">
         <ion-header-bar class="dark-bg expanded">
-          <div class="fondo-menu-avatar ">
-            <span class="avatar alinear-avatar-menu" style="background: url('img/sejuega.png'); background-size: cover;"></span>
+          <div class="fondo-menu-avatar " style="    background-image: url(img/pelota.jpg); background-size: 355px;">
+            <span class="avatar imagen-avatar " style="background: url('img/sejuega.png'); border-radius:0px;background-size: cover;"></span>
           </div>
         </ion-header-bar>
         <ion-content class="stable-bg muenu-desplegable has-expanded-header">
-            <ion-list>
-                <ion-item nav-clear class="texto-menu" menu-close ui-sref="app.crearpartido">
-                    CREAR PARTIDO
+            <ion-list >
+                <ion-item nav-clear class="texto-menu" style="border-bottom: 2px solid #91a02b;width:90%;margin: 0 auto;left: 0;right: 0;"menu-close ui-sref="app.crearpartido">
+                    <img src="img/crearpartido-logo.png" style="width: 20px;position: relative;top: 3px;"><img style="width: 10px;">CREAR PARTIDO
                 </ion-item>
-                <ion-item nav-clear menu-close class="texto-menu" ui-sref="app.mispartidos">
-                    MIS PARTIDOS CREADOS
+                <ion-item nav-clear menu-close class="texto-menu" style="border-bottom: 2px solid #91a02b;width:90%;margin: 0 auto;left: 0;right: 0;"ui-sref="app.mispartidos">
+                  <img src="img/mispartidoscreados-logo.png" style="width: 20px;position: relative;top: 3px;"><img style="width: 10px;">MIS PARTIDOS CREADOS
                 </ion-item>
-                <ion-item nav-clear menu-close class="texto-menu" ui-sref="app.invitacionespendientes">
-                    MIS INVITACIONES
+                <ion-item nav-clear menu-close class="texto-menu" style="border-bottom: 2px solid #91a02b;width:90%;margin: 0 auto;left: 0;right: 0;"ui-sref="app.invitacionespendientes">
+                    <img src="img/misinvitaciones-logo.png" style="width: 20px;position: relative;top: 3px;"><img style="width: 10px;">MIS INVITACIONES
                 </ion-item>
-                <ion-item nav-clear menu-close class="texto-menu" ui-sref="app.perfil">
-                    MI PERFIL
+                <ion-item nav-clear menu-close class="texto-menu" style="border-bottom: 2px solid #91a02b;width:90%;margin: 0 auto;left: 0;right: 0;"ui-sref="app.perfil">
+                    <img src="img/miperfil-logo.png" style="width: 20px;position: relative;top: 3px;"><img style="width: 10px;">MI PERFIL
                 </ion-item>
-                <ion-item nav-clear menu-close class="texto-menu" ng-click="doLogout()">
-                    CERRAR SESIÓN
+                <ion-item style="" nav-clear menu-close class="texto-menu" ng-click="doLogout()">
+                    <div style="width:90%;margin: 0 auto;left: 0;right: 0;"><img src="img/cerrarsesion-logo.png" style="width: 20px;position: relative;top: 3px;"><img style="width: 10px;">CERRAR SESIÓN</div>
                 </ion-item>
             </ion-list>
         </ion-content>

@@ -1,4 +1,4 @@
-<ion-view view-title="Usuarios">
+<ion-view class="fondo-mispartidos"view-title="Usuarios">
   <ion-content>
   <br />
     <label class="item item-input">
@@ -7,11 +7,11 @@
     </label>
 
      <ion-list ng-repeat="usuario in usuarioList | filter:searchQuery">
+       
+  <input type="checkbox" class="estilo-checkbox" checklist-model="selected.id_u" checklist-value="usuario.id" > {{usuario.name}}
 
-  <input type="checkbox" checklist-model="selected.id_u" checklist-value="usuario.id" > {{usuario.name}}
 
 
-  
 
     <br/>
 

@@ -1,8 +1,10 @@
 <ion-side-menus enable-menu-with-back-views="false">
 <style>
+
 hr{
   width: 80%;
 }
+
 </style>
 <ion-view view-title="Perfil">
     <ion-content ng-class="{expanded:isExpanded}"style="    transform: translate3d(0px, -1px, 0px) scale(1);" class="animate-fade-slide-in">
@@ -31,14 +33,14 @@ hr{
 
 
         <div class="" style=" height: 250px;width: 80%;background-color: ;">
-          <div class="centro" style="text-align: left;line-height:20%">
-          <h4>Datos Básicos </h4><hr />
-          <p>Edad: 21 años</p><br>
-          <p>Pais: Argentina</p><br>
-          <p>Provincia: Cordoba</p><br>
-          <p>Localidad: Cordoba</p><br>
-          <p>Barrio: Centro</p><br>
-          <p><font style="font-weight:500;">Nombre:</font><font style="font-weight:500;">Franco Neri</font></p><br>
+          <div class="centro" style="text-align: center;line-height:20%">
+          <h4>Datos Básicos </h4><hr /><br><br><br>
+          <p><font style="font-weight:700">Edad:</font> {{user.edad}}</p><br>
+          <p><font style="font-weight:700">Pais:</font>{{user.pais}}</p><br>
+          <p><font style="font-weight:700">Provincia:</font> {{user.provincia}}</p><br>
+          <p><font style="font-weight:700">Localidad:</font> {{user.localidad}}</p><br>
+          <p><font style="font-weight:700">Barrio:</font> {{user.barrio}}</p><br>
+          <p><font style="font-weight:700">Nombre:</font> {{user.name}}</p><br>
         </div>
 
 
@@ -48,8 +50,8 @@ hr{
         </div>
 
 
-        <button ng-click="modificar=1"  class="button button-positive">
-Modificar datos
+        <button ng-click="modificar=1" style="width: 150px; height: 30px; border: 0px; background-color: rgba(0,0,0,0.4);" class="centro">
+<img src="img/editar-perfil.png" style="width:13px;"> Editar mi perfil
 </button>
 
          <div class="item alinear-caja-cuadro card-item" style="background:red;" ng-show="modificar">

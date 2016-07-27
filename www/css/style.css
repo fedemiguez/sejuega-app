@@ -9,6 +9,10 @@
 .amarillo{
   color: #FFEB3B
 }
+.verde{
+
+  color: green;
+}
 
 .negro{
 
@@ -142,7 +146,19 @@ p {
 
 /* INICIO CAMBIOS ESTILOS APP
 ==================================*/
-
+.assertive-900-bg, .assertive-900-bg.activated, .assertive-900-bg:active, .assertive-900-bg:hover, .assertive-900-border, .assertive-900-border.activated, .assertive-900-border:active, .assertive-900-border:hover, .bar .button-assertive-900, .bar .button-assertive-900.activated, .bar .button-assertive-900:active, .bar .button-assertive-900:hover, .bar-assertive-900, .bar-assertive-900.activated, .bar-assertive-900:active, .bar-assertive-900:hover, .button-assertive-900, .button-assertive-900.activated, .button-assertive-900:active, .button-assertive-900:hover,
+.button-bar-assertive-900, .button-bar-assertive-900.activated, .button-bar-assertive-900:active, .button-bar-assertive-900:hover, .header-assertive-900, .header-assertive-900.activated, .header-assertive-900:active, .header-assertive-900:hover{
+  background-color: #A8B935;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,.26);
+  border-color: #A8B935;
+}
+.button-fab {
+    background-color: #A8B935 !important;
+}
+.bar .button-energized-900, .bar .button-energized-900.activated, .bar .button-energized-900:active, .bar .button-energized-900:hover, .bar-energized-900, .bar-energized-900.activated, .bar-energized-900:active, .bar-energized-900:hover, .button-bar-energized-900, .button-bar-energized-900.activated, .button-bar-energized-900:active, .button-bar-energized-900:hover, .button-energized-900, .button-energized-900.activated, .button-energized-900:active, .button-energized-900:hover, .energized-900-bg, .energized-900-bg.activated, .energized-900-bg:active, .energized-900-bg:hover,
+.energized-900-border, .energized-900-border.activated, .energized-900-border:active, .energized-900-border:hover, .header-energized-900, .header-energized-900.activated, .header-energized-900:active, .header-energized-900:hover{
+    background-color: #A8B935;
+}
 .cuadro-item{
   background-color:rgba(255, 255, 255, 0.6);
   box-shadow: 0px 0px 0px #ccc;
@@ -159,8 +175,9 @@ p {
 
 }
 .bar {
-  background-color: #00564A;
+  background-color: #A8B935;
   box-shadow: 0 0px 0px 0 rgba(0,0,0,.26);
+  border-color: #A8B935;
 }
 
 .margen-cuadro{
@@ -168,18 +185,18 @@ p {
 }
 
 .cuadro-invitar{
-  width:150px ;
+  width:100px ;
   height: 50%;
-  background-color: #00695C;
+  background-color: #a8b935;
   position: absolute;
   top: 0;
   right: 0;
   text-align: center;
 }
 .cuadro-ver{
-  width:150px ;
+  width:100px ;
   height: 50%;
-  background-color: #039179;
+  background-color: #91a02b;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -196,12 +213,17 @@ p {
   font-weight: 400;
   right: 3px;
   position: relative;
- top: 42%;
+ top: 30%;
  transform: translateY(-50%);
 }
 
 .fondo-mispartidos{
   background-image: url(../img/mispartidos-fondo.jpg);
+}
+.fondo-perfil{
+  background-image: url(../img/fondo-perfil.jpg);
+  background-size: cover;
+  background-position: top center;
 }
 .alinear-partido{
   position: relative;
@@ -212,12 +234,12 @@ p {
 
 
 .muenu-desplegable{
-  background-color: black;
+  background-color: #A8B935;
   color: white;
 }
 
 .muenu-desplegable:hover{
-  background-color: black;
+  background-color: #A8B935;
   color: white;
 }
 .texto-menu{
@@ -228,7 +250,7 @@ p {
   text-align: center;
 }
 .fondo-menu-avatar{
-  background-color: black;
+  background-color: #AAB249;
   width: 100%;
   height: 100%;
 }
@@ -239,11 +261,50 @@ p {
   background-color:  rgba(255,255,255,0.26);
 }
 .texto-label{
-  color: black;
+  color: white;
 }
 .alineacion-form{
   position: relative;
   top: 17px;
+}
+.menu .avatar {
+    height: 96px;
+    width: 100px;
+    position: relative;
+    left: 80px;
+}
+.caja-perfil{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+
+}
+.caja-avatar{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+}
+.centro{
+  position: absolute;
+margin: 0 auto;
+left: 0;
+right: 0;
+
+
+}
+.item-avatar .item-content .item-image, .item-avatar .item-content>img:first-child, .item-avatar .item-image, .item-avatar-left .item-content .item-image, .item-avatar-left .item-content>img:first-child, .item-avatar-left .item-image, .item-avatar-left>img:first-child, .item-avatar>img:first-child{
+  position: absolute;
+  left: 0;
+}
+.posicion-mail{
+  position: absolute;
+    top: 115px;
+}
+.back-button{
+  display: none;
+}
+.list{
+
 }
 /* FIN CAMBIOS ESTILOS APP
 ==================================*/
