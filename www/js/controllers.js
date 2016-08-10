@@ -652,9 +652,8 @@ $scope.doRegisterFB = function() {
        }, function(err) {
          console.error('ERR', err);
 
-
-
-          });
+         // err.status will contain the status code
+       });
 
     }, function(err) {
       console.error('ERR', err);
