@@ -5,16 +5,17 @@
 
      </video>
 
+ <ion-header-bar>
+    <h1 class="title">Registrarse!</h1>
+</ion-header-bar>
 
     <ion-content >
-      <button ng-click="doRegisterFB()"  class="button button-full  ink icon-left ion-social-facebook button-positive-900"> Conectarse con Facebook</button>
 
+      <br/><br/><br/>
 
 
         <div class="list">
-          <label style="color:white; font-size:16px; text-align: center; background-color:black; height:24px; background-color: rgba(0, 0, 0, 0.7);" class="item-stacked-label"> o con tu correo electronico </label>
-
-            <br />
+         
             
           <div class="list">
             <label class="item item-input blanco">
@@ -25,6 +26,34 @@
             
             <label class="item item-input blanco">
               <input type="text" placeholder="E-Mail" ng-model="user.email">
+            </label>
+
+            <br />
+
+            <label class="item item-input blanco"> Fecha Nacimiento: 
+              <input type="date" placeholder="Fecha Nacimiento" ng-model="user.fecha">
+            </label>
+
+            <br />
+
+            <label class="item item-input blanco">Provincia:
+              <select ng-model="user.provincia">
+                <option value="Córdoba">Córdoba</option>
+              </select>
+            </label>
+
+            <br />
+
+            <label class="item item-input blanco">Localidad:
+              <select ng-model="user.localidad">
+                <option value="Córdoba">Córdoba</option>
+              </select>
+            </label>
+
+            <br />
+
+            <label class="item item-input blanco">
+              <input type="text" placeholder="Barrio" ng-model="user.barrio">
             </label>
 
             <br />

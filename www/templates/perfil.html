@@ -14,8 +14,10 @@ hr{
                 <div class="caja-perfil fondo-perfil">
             <div ui-sref="app.gallery" class="caja-avatar">
 
-              <div class="item item-avatar item-text-wrap">
-                      <img class=" centro " style="border-radius: 50%;height: 200px; max-width: 100px; width: 200px; max-height: 100px;border: solid #646466; border-width: 4px;"src="https://media.licdn.com/media/AAEAAQAAAAAAAAJuAAAAJDQ1OTI0OTM0LWJjMDItNDUyYS1iNDIyLTMzZWU5ZjQyYTdjYw.jpg">
+              <div class="item item-avatar item-text-wrap" >
+                     <button class="button button-full button-positive"  ng-click="getImage()">
+                        Subir imagen
+                  </button>
 
               </div>
                 <div class="item centro posicion-mail item-text-wrap">
@@ -51,10 +53,9 @@ hr{
         </div>
 
 
-        <button ng-click="modificar=1" style="width: 150px; height: 30px; border: 0px; background-color: rgba(0,0,0,0.4);" class="centro">
-<img src="img/editar-perfil.png" style="width:13px;"> Editar mi perfil
-
-</button>
+    <button class="button button-dark" ng-click="showPopup()">
+      <img src="img/editar-perfil.png" style="width:13px;"> Editar mi perfil
+    </button>
 
          <div class="item alinear-caja-cuadro card-item" style="background:red;" ng-show="modificar">
             <div ui-sref="app.gallery" class="card stable-bg cuadro-item ink ink-dark">

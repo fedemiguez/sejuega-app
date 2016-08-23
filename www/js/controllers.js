@@ -124,10 +124,15 @@ angular.module('starter.controllers', [])
         $scope.user.picture='';
         $scope.user.name='';
         $scope.user.email='';
+        $scope.user.fecha='';
+        $scope.user.provincia='';
+        $scope.user.localidad='';
+        $scope.user.barrio='';
         $scope.user.id =''; 
   
+  
    $scope.doRegister = function() {
-      $http.post('http://sejuega.herokuapp.com/usuario',$scope.user ).then(function(resp) {
+      $http.post('http://apisejuega.puntodesignweb.com.ar/usuario',$scope.user ).then(function(resp) {
         console.log(resp.data);
          var alertPopup = $ionicPopup.alert({
              title: 'Usuario Creado con exito',
@@ -198,7 +203,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -210,7 +215,7 @@ $scope.doRegisterFB = function() {
 
     $scope.partido = [];
 
-    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId, {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/partidos/'+$stateParams.partidoId, {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.partido = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -222,7 +227,7 @@ $scope.doRegisterFB = function() {
 
     $scope.invitados = [];
 
-    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/invitados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/partidos/'+$stateParams.partidoId+'/invitados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.invitados = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -273,7 +278,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -284,7 +289,7 @@ $scope.doRegisterFB = function() {
 
     $scope.partidos = [];
 
-       $http.get('http://sejuega.herokuapp.com/mispartidos', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+       $http.get('http://apisejuega.puntodesignweb.com.ar/mispartidos', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
          $scope.partidos = resp.data.data;
          console.log('Succes partidos', resp.data.data);
 
@@ -295,7 +300,7 @@ $scope.doRegisterFB = function() {
        });
 
     $scope.doDelete = function(Id) {
-    $http.delete('http://sejuega.herokuapp.com/partidos/'+ $stateParams.Id, $scope.partido).then(function(resp) {
+    $http.delete('http://apisejuega.puntodesignweb.com.ar/partidos/'+ $stateParams.Id, $scope.partido).then(function(resp) {
       console.log(resp.data);
       $location.path('/app/partidos');
     }, function(err) {
@@ -319,7 +324,7 @@ $scope.doRegisterFB = function() {
         $scope.user.password =''; 
   
    $scope.doLogin = function() {
-      $http.post('http://sejuega.herokuapp.com/login',$scope.user).then(function(resp) {
+      $http.post('http://apisejuega.puntodesignweb.com.ar/login',$scope.user).then(function(resp) {
          $rootScope.userToken = resp.data.token;
          $location.path('/app/perfil');
 
@@ -358,7 +363,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -371,7 +376,7 @@ $scope.doRegisterFB = function() {
 
     $scope.cancelados = [];
 
-    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/cancelados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/partidos/'+$stateParams.partidoId+'/cancelados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.cancelados = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -420,7 +425,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -433,7 +438,7 @@ $scope.doRegisterFB = function() {
 
     $scope.aceptados = [];
 
-    $http.get('http://sejuega.herokuapp.com/partidos/'+$stateParams.partidoId+'/aceptados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/partidos/'+$stateParams.partidoId+'/aceptados', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.aceptados = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -484,7 +489,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
     $scope.partidos = [];
 
-    $http.get('http://sejuega.herokuapp.com/misinvitaciones', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/misinvitaciones', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.partidos = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -509,7 +514,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -537,7 +542,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -546,7 +551,7 @@ $scope.doRegisterFB = function() {
       // err.status will contain the status code
     });
 
-     $http.get('http://sejuega.herokuapp.com/misinvitacionescanceladas', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+     $http.get('http://apisejuega.puntodesignweb.com.ar/misinvitacionescanceladas', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.partidos = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -574,7 +579,7 @@ $scope.doRegisterFB = function() {
     ionicMaterialInk.displayEffect();
 
         $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -583,7 +588,7 @@ $scope.doRegisterFB = function() {
       // err.status will contain the status code
     });
 
- $http.get('http://sejuega.herokuapp.com/misinvitacionesaceptadas', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+ $http.get('http://apisejuega.puntodesignweb.com.ar/misinvitacionesaceptadas', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.partidos = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -607,11 +612,11 @@ $scope.doRegisterFB = function() {
     $scope.isExpanded = false;
     $scope.$parent.setExpanded(false);
     $scope.$parent.setHeaderFab('right');
-      $scope.partidos={};
-        $scope.partidos.nombre='';
-        $scope.partidos.participantes='';
-        $scope.partidos.fecha='';
-        $scope.partidos.hora='';
+    $scope.partidos={};
+    $scope.partidos.nombre='';
+    $scope.partidos.participantes='';
+    $scope.partidos.fecha='';
+    $scope.partidos.hora='';
 
     $timeout(function() {
         ionicMaterialMotion.fadeSlideIn({
@@ -624,7 +629,7 @@ $scope.doRegisterFB = function() {
 
 
     $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -637,12 +642,12 @@ $scope.doRegisterFB = function() {
 
           $scope.doCreate = function() {
 
-      $http.post('http://sejuega.herokuapp.com/partidos', $scope.partidos, {headers: {'auth-token': $rootScope.userToken}}  ).then(function(resp) {
+      $http.post('http://apisejuega.puntodesignweb.com.ar/partidos', $scope.partidos, {headers: {'auth-token': $rootScope.userToken}}  ).then(function(resp) {
         console.log(resp.data);
 
     $scope.ultimopartido = [];
 
-       $http.get('http://sejuega.herokuapp.com/ultimopartido', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+       $http.get('http://apisejuega.puntodesignweb.com.ar/ultimopartido', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
          $scope.ultimopartido = resp.data.data;
          console.log('Succes partidos', resp.data.data);
 
@@ -684,7 +689,7 @@ $scope.doRegisterFB = function() {
 
 
 $scope.getUsuarioList = function(){
-    $http.get('http://sejuega.herokuapp.com/jugadores/'+$scope.user.id).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/jugadores/'+$scope.user.id).then(function(resp) {
         $scope.usuarioList = resp.data.data;
         console.log('usuariolist', resp.data.data);
     }, function(err) {
@@ -692,7 +697,7 @@ $scope.getUsuarioList = function(){
     }); 
 }
 
-$http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+$http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
   $scope.user = resp.data.data;
   $scope.getUsuarioList();
   console.log('userid', resp.data.data);
@@ -711,7 +716,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
 
 
       $scope.doInvitar = function() {
-      $http.post('http://sejuega.herokuapp.com/partidos/'+ $stateParams.partidoId+'/invitar', $scope.selected , {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      $http.post('http://apisejuega.puntodesignweb.com.ar/partidos/'+ $stateParams.partidoId+'/invitar', $scope.selected , {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
         console.log(resp.data);
 
      var alertPopup = $ionicPopup.alert({
@@ -764,7 +769,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
 })
 
 
-.controller('PerfilCtrl', function($rootScope, $scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $http, $location) {
+.controller('PerfilCtrl', function($rootScope, $scope, $stateParams, $timeout, $ionicPopup, $cordovaFileTransfer, ionicMaterialInk, ionicMaterialMotion, $http, $location, $cordovaImagePicker, $ionicPlatform) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = true;
@@ -785,7 +790,8 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
 
 
     $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -798,8 +804,32 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
 
 
 
+ $scope.showPopup = function() {
+   $scope.data = {}
+
+   // An elaborate, custom popup
+   var myPopup = $ionicPopup.show({
+     template: '<input type="text" style="color:black" ng-model="user.name"> <br/>  <input  style="color:black" type="text" ng-model="user.email">',
+     title: 'Editar mi Perfil',
+     scope: $scope,
+     buttons: [
+       {
+         text: '<b>Guardar</b>',
+         type: 'button-positive',
+       },
+     ]
+   });
+   myPopup.then(function(res) {
+     $scope.doSave();
+   });
+
+  };
+
   $scope.doSave = function() {
-    $http.put('http://sejuega.herokuapp.com/usuario/'+ $stateParams.UsuarioId, $scope.usuario).then(function(resp) {
+
+
+
+    $http.put('http://apisejuega.puntodesignweb.com.ar/usuario/'+ $scope.user.id, $scope.user).then(function(resp) {
       console.log(resp.data);
       $location.path('/app/perfil');
     }, function(err) {
@@ -808,6 +838,42 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
     });
 
   };
+
+ 
+$scope.getImage = function() {  
+
+var options = {
+   maximumImagesCount: 10,
+   width: 800,
+   height: 800,
+   quality: 80
+  };
+
+  $cordovaImagePicker.getPictures(options)
+    .then(function (results) {
+      for (var i = 0; i < results.length; i++) {
+        console.log('Image URI: ' + results[i]);
+
+       $cordovaFileTransfer.upload('http://apisejuega.puntodesignweb.com.ar/subirfoto', results[i], {headers: {'auth-token': $rootScope.userToken}})
+      .then(function(result) {
+        console.log;
+      }, function(err) {
+        // Error
+      }, function (progress) {
+        // constant progress updates
+      });
+
+      }
+    }, function(error) {
+      // error getting photos
+    });
+
+};
+
+
+
+
+
 
 })
 
@@ -830,7 +896,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
     });
 
     $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -842,7 +908,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
 
 
   $scope.aceptar = function() {
-    $http.put('http://sejuega.herokuapp.com/aceptarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.put('http://apisejuega.puntodesignweb.com.ar/aceptarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       console.log(resp.data);
       $location.path('/app/invitacionespendientes');
 
@@ -874,7 +940,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
     });
 
     $scope.user = [];
-    $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
     }, function(err) {
@@ -886,7 +952,7 @@ $http.get('http://sejuega.herokuapp.com/me', {headers: {'auth-token': $rootScope
 
 
   $scope.cancelar = function() {
-    $http.put('http://sejuega.herokuapp.com/cancerlarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+    $http.put('http://apisejuega.puntodesignweb.com.ar/cancerlarinvitacion/'+ $stateParams.partidoId,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       console.log(resp.data);
     }, function(err) {
       console.error('ERR', err);
