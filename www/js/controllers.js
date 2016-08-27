@@ -124,6 +124,7 @@ angular.module('starter.controllers', [])
         $scope.user.picture='';
         $scope.user.name='';
         $scope.user.email='';
+        $scope.user.password='';
         $scope.user.fecha='';
         $scope.user.provincia='';
         $scope.user.localidad='';
@@ -730,6 +731,7 @@ $scope.doRegisterFB = function() {
     $scope.partidos={};
     $scope.partidos.nombre='';
     $scope.partidos.participantes='';
+    $scope.partidos.lugar='';
     $scope.partidos.fecha='';
     $scope.partidos.hora='';
 
@@ -779,12 +781,10 @@ $scope.doRegisterFB = function() {
       console.error('ERR', err);
 
          var alertPopup = $ionicPopup.alert({
-             title: 'Problema al Invitar',
-             template: 'Ya invitaste a este jugador'
+             title: 'Error al crear el partido',
+             template: err.data.msg
            });
-           alertPopup.then(function(res) {
-             $location.path('/app/crearpartido');
-           });  
+  
 
     });
     };
