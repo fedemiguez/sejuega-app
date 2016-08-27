@@ -46,14 +46,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/crearpartido.html',
                 controller: 'CrearPartidoCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-home"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
     .state('app.partidospendientes', {
@@ -63,14 +56,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/partidospendientes.html',
                 controller: 'partidospendientesCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
 
@@ -115,14 +101,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/partidoscancelados.html',
                 controller: 'partidoscanceladosCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
 
@@ -134,14 +113,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/partidosaceptados.html',
                 controller: 'partidosaceptadosCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
 
@@ -152,14 +124,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/invitacionescanceladas.html',
                 controller: 'invitacionescanceladasCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
     .state('app.invitacionesaceptadas', {
@@ -169,14 +134,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/invitacionesaceptadas.html',
                 controller: 'invitacionesaceptadasCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
     .state('app.invitacionespendientes', {
@@ -186,14 +144,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
                 templateUrl: 'templates/invitacionespendientes.html',
                 controller: 'invitacionespendientesCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-activity" class="button button-fab button-fab-bottom-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-activity').classList.toggle('on');
-                    }, 200);
-                }
-            }
+
         }
     })
 
@@ -229,6 +180,17 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'ionic-mat
         views: {
             'menuContent': {
                 templateUrl: 'templates/mispartidos.html',
+                controller: 'mispartidosCtrl'
+            },
+
+        }
+    })
+
+    .state('app.home', {
+        url: '/home',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/home.html',
                 controller: 'mispartidosCtrl'
             },
 

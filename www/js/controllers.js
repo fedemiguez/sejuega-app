@@ -143,8 +143,12 @@ angular.module('starter.controllers', [])
            });
           
     }, function(err) {
-      console.error('ERR', err);
-      // err.status will contain the status code
+
+  var alertPopup = $ionicPopup.alert({
+             title: 'Error',
+             template: err.data.msg
+           });
+         
     });
     };
 
@@ -466,7 +470,7 @@ $scope.doRegisterFB = function() {
 
 
 
-.controller('invitacionespendientesCtrl', function($location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http) {
+.controller('invitacionespendientesCtrl', function($location, $ionicPopup, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $http) {
  $scope.$parent.showHeader();
     $scope.isExpanded = false;
     $scope.$parent.setExpanded(false);
@@ -500,6 +504,59 @@ $scope.doRegisterFB = function() {
 
 
 
+    $scope.aceptar=function($id){
+
+    var alertPopup = $ionicPopup.alert({
+             title: 'Aceptar el partido',
+             template: '¿Estas seguro de aceptar el partido?'
+           });
+           alertPopup.then(function(res) {
+
+            $scope.aceptarpartido($id);
+
+           });  
+
+
+             $scope.aceptarpartido = function($id) {
+    $http.put('http://apisejuega.puntodesignweb.com.ar/aceptarinvitacion/'+ $id,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      console.log(resp.data);
+      $location.path('/app/invitacionesaceptadas');
+
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+  };
+
+    }
+
+    $scope.cancelar=function($id){
+
+    var alertPopup = $ionicPopup.alert({
+             title: 'Cancelar el partido',
+             template: '¿Estas seguro de cancelar el partido?'
+           });
+           alertPopup.then(function(res) {
+
+            $scope.cancelarpartido($id);
+
+           });  
+
+
+             $scope.cancelarpartido = function($id) {
+    $http.put('http://apisejuega.puntodesignweb.com.ar/cancerlarinvitacion/'+ $id,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      console.log(resp.data);
+      $location.path('/app/invitacionescanceladas');
+
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+  };
+
+    }
 
 
 
@@ -525,7 +582,7 @@ $scope.doRegisterFB = function() {
 })
 
 
-.controller('invitacionescanceladasCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+.controller('invitacionescanceladasCtrl', function($http, $ionicPopup, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = false;
@@ -561,8 +618,36 @@ $scope.doRegisterFB = function() {
     });
 
 
+    $scope.aceptar=function($id){
+
+    var alertPopup = $ionicPopup.alert({
+             title: 'Aceptar el partido',
+             template: '¿Estas seguro de aceptar el partido?'
+           });
+           alertPopup.then(function(res) {
+
+            $scope.aceptarpartido($id);
+
+           });  
+
+
+             $scope.aceptarpartido = function($id) {
+    $http.put('http://apisejuega.puntodesignweb.com.ar/aceptarinvitacion/'+ $id,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      console.log(resp.data);
+      $location.path('/app/invitacionesaceptadas');
+
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+  };
+
+    }
+
+
 })
-.controller('invitacionesaceptadasCtrl', function($http, $location, $rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+.controller('invitacionesaceptadasCtrl', function($http, $location, $ionicPopup,$rootScope, $scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = false;
@@ -596,6 +681,36 @@ $scope.doRegisterFB = function() {
       $location.path('/app/inicio');
       // err.status will contain the status code
     });
+
+
+
+
+    $scope.cancelar=function($id){
+
+    var alertPopup = $ionicPopup.alert({
+             title: 'Cancelar el partido',
+             template: '¿Estas seguro de cancelar el partido?'
+           });
+           alertPopup.then(function(res) {
+
+            $scope.cancelarpartido($id);
+
+           });  
+
+
+             $scope.cancelarpartido = function($id) {
+    $http.put('http://apisejuega.puntodesignweb.com.ar/cancerlarinvitacion/'+ $id,  {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
+      console.log(resp.data);
+      $location.path('/app/invitacionescanceladas');
+
+    }, function(err) {
+      console.error('ERR', err);
+      // err.status will contain the status code
+    });
+
+  };
+
+    }
 
 
 })
@@ -794,6 +909,8 @@ $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token':
     $http.get('http://apisejuega.puntodesignweb.com.ar/me', {headers: {'auth-token': $rootScope.userToken}}).then(function(resp) {
       $scope.user = resp.data.data;
       console.log('Succes', resp.data.data);
+      $location.path('/app/perfil');
+
     }, function(err) {
       console.error('ERR', err);
       $location.path('/app/inicio');
@@ -856,7 +973,9 @@ var options = {
 
        $cordovaFileTransfer.upload('http://apisejuega.puntodesignweb.com.ar/subirfoto', results[i], {headers: {'auth-token': $rootScope.userToken}})
       .then(function(result) {
-        console.log;
+        console.log(result);
+
+
       }, function(err) {
         // Error
       }, function (progress) {
@@ -869,6 +988,9 @@ var options = {
     });
 
 };
+
+
+
 
 
 

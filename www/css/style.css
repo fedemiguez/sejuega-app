@@ -303,6 +303,80 @@ right: 0;
 .back-button{
   display: none;
 }
+.mispartidos-texto{
+  width: 155px;
+text-align: left;
+}
+.titulo-partido{
+  font-size: 20px;
+}
+.img-home{
+  background-image: url(../img/img-home.jpg);
+  background-size: cover;
+  background-position: top center;
+}
 
+
+.caja-home-abajo{
+  width: 100%;
+    height: 90%;
+
+    background: white;
+    position: absolute;
+    bottom:0;
+}
+.caja-home-arriba{
+  width: 100%;
+      height: 15%;
+      position: absolute;
+      top: 3.0%;
+      background: white;
+
+      border-radius: 200px/34px;
+}
+.caja-fuera{
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  bottom: 0;
+}
+.proximo-partido{
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  top: 0;
+}
+.titulo-prox-partido{
+ font-size: 18px;
+
+ color: white;
+ text-align: center;
+}
+.texto-prox-partido{
+  font-size: 28px;
+  color: white;
+  text-align: center;
+}
+.ultimo-creado{
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+  position: absolute;
+
+  top: 15%;
+}
+.nuevopartido-home{
+  width: 200px;
+  height: 40px;
+  background-color: #91a02b;
+
+}
+.invitaciones-cuadro{
+  background-color: rgba(255, 255, 255, 0.6);
+box-shadow: 0px 0px 0px #ccc;
+border-radius: 0px;
+width: 100%;
+  margin-left: 0;
+}
 /* FIN CAMBIOS ESTILOS APP
 ==================================*/
